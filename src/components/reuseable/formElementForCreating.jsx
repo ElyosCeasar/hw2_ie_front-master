@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { InputNumber, Input, Button, Select, Checkbox } from "antd";
 import OptionManager from "./optionManager";
+import { Link } from "react-router-dom";
 const { Option } = Select;
 class FormElementForCreating extends Component {
   state = {
@@ -102,7 +103,8 @@ class FormElementForCreating extends Component {
               style={{ marginLeft: 15, marginRight: 15, width: 100 }}
             /> */}
           </h5>
-
+          {this.discribtionBuilder()}
+          {this.linkToFindingLocationPage()}
           {this.generateOptions()}
         </div>
       </div>
@@ -138,6 +140,31 @@ class FormElementForCreating extends Component {
           onChangeOptions={this.onChangeOptions}
           intitialVal={this.props.obj.field.options}
         ></OptionManager>
+      );
+    }
+  };
+  linkToFindingLocationPage = () => {
+    if (
+      this.props.obj.field.hasOptions &&
+      this.props.obj.field.type === "Location"
+    ) {
+      return (
+        <Link to="/LocationFinder" target="_blank">
+          {this.props.direc === "rtl"
+            ? "برای پیدا کردن مختصات کلیک کنید"
+            : "for finding location click here"}
+        </Link>
+      );
+    }
+  };
+  discribtionBuilder = () => {
+    if (this.props.obj.field.hasOptions) {
+      return (
+        <p>
+          {this.props.direc === "rtl"
+            ? "پر کردن دقیق آیتم ها مسئولیت کاربر است و نرم افزار در قبال پر کردن اشتباه مسئولیتی ندارد"
+            : "caution: you must fill elements carefully we do not have any risponsiblity if you don't!"}
+        </p>
       );
     }
   };

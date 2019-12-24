@@ -6,6 +6,7 @@ import { Row, Col } from "antd";
 import { Route, Switch } from "react-router-dom";
 import FormCreater from "./components/pages/formCreater";
 import ShowSpeceficForm from "./components/pages/showSpeceficForm";
+import LocationFinder from "./components/pages/locationFinder";
 
 class App extends React.Component {
   state = {
@@ -72,6 +73,12 @@ class App extends React.Component {
                     )}
                   />
                   <Route
+                    path="/LocationFinder"
+                    render={props => (
+                      <LocationFinder direc={this.state.direc} {...props} />
+                    )}
+                  />
+                  <Route
                     path="/ShowSpeceficForm/:id"
                     render={props => (
                       <ShowSpeceficForm direc={this.state.direc} {...props} />
@@ -131,6 +138,12 @@ class App extends React.Component {
                     )}
                   />
                   <Route
+                    path="/LocationFinder"
+                    render={props => (
+                      <LocationFinder direc={this.state.direc} {...props} />
+                    )}
+                  />
+                  <Route
                     path="/ShowSpeceficForm/:id"
                     render={props => (
                       <ShowSpeceficForm direc={this.state.direc} {...props} />
@@ -179,6 +192,12 @@ class App extends React.Component {
                 path="/ShowAllForms"
                 render={props => (
                   <ShowAllForms direc={this.state.direc} {...props} />
+                )}
+              />
+              <Route
+                path="/LocationFinder"
+                render={props => (
+                  <LocationFinder direc={this.state.direc} {...props} />
                 )}
               />
               <Route
