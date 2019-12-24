@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 
 import { arePathsEqual } from "./lib/arePathsEqual";
 import { camelize } from "./lib/String";
-// const evtNames = ["click", "mouseout", "mouseover"];
-const evtNames = [];
-window.onload = function() {
-  evtNames.push("click");
-  evtNames.push("mouseout");
-  evtNames.push("mouseover");
-};
+//  const evtNames = ["click", "mouseout", "mouseover"];
+// const evtNames = [];
+// window.onload = function() {
+//   evtNames.push("click");
+//   evtNames.push("mouseout");
+//   evtNames.push("mouseover");
+// };
 const wrappedPromise = function() {
   var wrappedPromise = {},
     promise = new Promise(function(resolve, reject) {
@@ -77,9 +77,9 @@ export class Polygon extends React.Component {
 
     this.polygon = new google.maps.Polygon(params);
 
-    evtNames.forEach(e => {
-      this.polygon.addListener(e, this.handleEvent(e));
-    });
+    // evtNames.forEach(e => {
+    //   this.polygon.addListener(e, this.handleEvent(e));
+    // });
 
     this.polygonPromise.resolve(this.polygon);
   }
@@ -111,7 +111,7 @@ Polygon.propTypes = {
   fillOpacity: PropTypes.number
 };
 
-evtNames.forEach(e => (Polygon.propTypes[e] = PropTypes.func));
+//evtNames.forEach(e => (Polygon.propTypes[e] = PropTypes.func));
 
 Polygon.defaultProps = {
   name: "Polygon"
