@@ -6,7 +6,9 @@ import { camelize } from "./lib/String";
 // const evtNames = ["click", "mouseout", "mouseover"];
 const evtNames = [];
 window.onload = function() {
-  evtNames = ["click", "mouseout", "mouseover"];
+  evtNames.push("click");
+  evtNames.push("mouseout");
+  evtNames.push("mouseover");
 };
 const wrappedPromise = function() {
   var wrappedPromise = {},
